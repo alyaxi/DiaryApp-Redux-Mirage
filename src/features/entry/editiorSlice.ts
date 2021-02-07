@@ -1,8 +1,6 @@
 import {createSlice, PayloadAction} from "@reduxjs/toolkit";
-import { bool } from "yup";
-import { boolean } from "yup/lib/locale";
+
 import {Entry} from "../../Interfaces/Entry";
-import entry from "./entry";
 
 interface EditorState {
     canEdit: boolean;
