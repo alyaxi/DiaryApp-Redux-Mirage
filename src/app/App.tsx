@@ -1,10 +1,10 @@
 import React, {FC, lazy, Suspense} from 'react';
 import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
 import { useSelector } from "react-redux";
-import { RootState } from "../RootReducer"
+import { RootState } from "../RootReducer";
 
 const Auth = lazy(() => import("../features/auth/Auth"))
-const Home = lazy(() => import("../features/home/Home"))
+const Home = lazy(() => import("../features/Home/Home"))
 
 const App: FC = () => {
   const isLoggedin = useSelector(
