@@ -10,14 +10,16 @@ import {authResponse} from "../../services/mirage/Routes/user";
 import { useAppDispatch } from "../../store";
 
 const schema = Yup.object().shape({
-    username: Yup.string().required("What? No Username?").max(16,"Username can not be longer 16 characters"),
-    password: Yup.string().required("Without a password,'None Shall Pass!'"),
-    email: Yup.string().required("Please Provide a valid email address (xyz@xy.z)")
-});
+    username: Yup.string()
+      .required('What? No username?')
+      .max(16, 'Username cannot be longer than 16 characters'),
+    password: Yup.string().required('Without a password, "None shall pass!"'),
+    email: Yup.string().email('Please provide a valid email address (abc@xy.z)'),
+  });
 
-const Auth: FC = () => {
+  const Auth: FC = () => {
     const { handleSubmit, register, errors } = useForm<User>({
-      validationSchema: schema,
+      validationSchema: schema
     });
   
     const [isLogin, setIsLogin] = useState(true);

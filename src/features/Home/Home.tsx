@@ -1,9 +1,16 @@
-import React, {FC} from 'react'
+import React, {FC} from 'react';
+import Diaries from "../diary/Diary";
+import Editor from "../entry/Editor"
 
 const Home: FC = () => {
     return (
-        <div>
-            <p>Welcome to Home</p>
+        <div className="two-cols">
+          <div className="left">
+            <Diaries />
+          </div>
+          <div className="right">
+            <Editor />
+          </div>
         </div>
     )
 }
