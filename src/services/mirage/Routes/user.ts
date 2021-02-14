@@ -46,6 +46,7 @@ export const signup = (schema: any, req: Request): authResponse | Response => {
     }
 }
 
+// eslint-disable-next-line import/no-anonymous-default-export
 export default  { 
     signup, 
     login,
