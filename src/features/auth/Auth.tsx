@@ -46,6 +46,7 @@ import { useAppDispatch } from "../../store";
     return(
         <div className="auth">
             <div className="card">
+                <div><h1 style={{color: "#778899"}}>Login UP</h1></div>
                 <form onSubmit={handleSubmit(submitForm)}>
                     <div className="inputWrapper">
                         <input ref={register} name="Username" placeholder="Username"/>
