@@ -1,4 +1,4 @@
-import React, {FC, useEffect, useState} from "react";
+import React, {FC, useEffect} from "react";
 import {useParams, Link} from "react-router-dom";
 import {useSelector} from "react-redux";
 import { RootState } from "../../RootReducer";
@@ -13,12 +13,12 @@ import {useAppDispatch} from "../../store";
 const DiaryEntryList: FC = () => {
     const { entry } = useSelector((state: RootState) => state);
     const dispatch = useAppDispatch();
-    const { id } = useParams<Entry>();
+    const { id } = useParams<any>();
 
     useEffect(() => {
         if (id != null){
             http
-            .get<null, {entry: Entry[];}>(`/diary/entry/${id}`)
+            .get<null, {entry: Entry[]}>(`/diary/entry/${id}`)
             .then(({entry: _entry}) => {
                 if(_entry){
                     const sortbyLastUpdated = _entry.sort((a,b)=> {

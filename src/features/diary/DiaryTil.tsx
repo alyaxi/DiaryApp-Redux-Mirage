@@ -27,7 +27,7 @@ const DiaryTile: FC<Prop> = (prop) => {
         .then((diary) => {
             if(diary) {
                 dispatch(updateDiary(diary));
-                showAlert('Saved', 'success');
+                showAlert('saved', 'success');
             }
         })
         .finally(() => {

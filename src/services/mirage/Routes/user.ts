@@ -11,7 +11,7 @@ export interface authResponse  {
     user: User
 }
 
-const login = (schema: any , req: Request): authResponse | Response => {
+export const login = (schema: any , req: Request): authResponse | Response => {
     const { username, password } = JSON.parse(req.requestBody);
     const user = schema.users.findBy({username})
     if(!user){
@@ -29,7 +29,7 @@ const login = (schema: any , req: Request): authResponse | Response => {
     }
 }
 
-const signUp = (schema: any, req: Request): authResponse | Response => {
+export const signup = (schema: any, req: Request): authResponse | Response => {
     const data = JSON.parse(req.requestBody);
     const exUser = schema.users.findBy({username: data.username})
 
@@ -46,4 +46,7 @@ const signUp = (schema: any, req: Request): authResponse | Response => {
     }
 }
 
-export default { signUp, login }
+export default  { 
+    signup, 
+    login,
+ }

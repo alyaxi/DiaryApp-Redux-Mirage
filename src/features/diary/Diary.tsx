@@ -35,7 +35,7 @@ const Diaries : FC = () => {
     }, [dispatch, user]);
 
     const createDiary  = async () => {
-        const Result = (await Swal.mixin({
+        const Result:any = await Swal.mixin({
             input: "text",
             confirmButtonText: "Next >",
             showCancelButton: true,
@@ -55,7 +55,7 @@ const Diaries : FC = () => {
                 },
                 inputValue: "private"
             },
-        ])) as any;
+        ])
 
         if( Result.value ){
             const {value} = Result;

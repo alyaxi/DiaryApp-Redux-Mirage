@@ -2,7 +2,7 @@ import {Server, Model, hasMany, Response, belongsTo, Factory } from "miragejs";
 import user from "./Routes/user";
 import * as diary from "./Routes/diary"
 
-export const handleErrors = (err: any, messeage = "An error occured") => {
+export const handleErrors = (error: any, messeage = "An error occured") => {
     return new Response(400, undefined, {
         data: {
             messeage,
@@ -42,11 +42,11 @@ export const setupServer = (env?: string): Server => {
     routes(): void {
         this.urlPrefix = "https://diary.app";
 
-        this.get("/diary/entries/:id", diary.getEntries)
+        this.get("/diary/entry/:id", diary.getEntries)
         this.get("/diary/:id", diary.getDiaries)
 
-        this.get("/auth/login", user.login)
-        this.get("/auth/signup", user.signUp)
+        this.post("/auth/login", user.login)
+        this.post("/auth/signup", user.signup)
 
         this.post("/diary/", diary.create)
         this.post("/diary/entry/:id", diary.addEntry)
